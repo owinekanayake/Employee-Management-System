@@ -36,8 +36,18 @@ public class EmployeeController {
         return "Deleted";
     }
 
-    @PostMapping("/update-employee")
+    @PutMapping("/update-employee")
     public void updateEmployee(@RequestBody Employee employee){
         employeeService.updateEmployee(employee);
+    }
+
+    @GetMapping("/find-by-id/{id}")
+    public Employee findById(@PathVariable Long id){
+        return employeeService.findById(id);
+    }
+
+    @GetMapping("/find-by-firstName/{firstName}")
+    public Employee findbyFirstName(@PathVariable String firstName){
+        return employeeService.findByFirstName(firstName);
     }
 }
