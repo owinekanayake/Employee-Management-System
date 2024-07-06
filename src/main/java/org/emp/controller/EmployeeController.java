@@ -35,4 +35,9 @@ public class EmployeeController {
         employeeService.deleteEmployeeById(id);
         return "Deleted";
     }
+
+    @PostMapping("/update-employee")
+    public void updateEmployee(@RequestBody Employee employee){
+        employeeService.updateEmployee(employee);
+    }
 }
