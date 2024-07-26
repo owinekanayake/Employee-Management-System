@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/emp-controller")
 @RequiredArgsConstructor
+@CrossOrigin
 //http://localhost:8080/emp-controller/add-employee
 public class EmployeeController {
 
@@ -20,6 +21,7 @@ public class EmployeeController {
     @PostMapping("add-employee")
     @ResponseStatus(HttpStatus.CREATED)
     public void addEmployee(@RequestBody Employee employee){
+
         employeeService.addEmployee(employee);
     }
 
@@ -38,11 +40,13 @@ public class EmployeeController {
 
     @PutMapping("/update-employee")
     public void updateEmployee(@RequestBody Employee employee){
+
         employeeService.updateEmployee(employee);
     }
 
     @GetMapping("/find-by-id/{id}")
     public Employee findById(@PathVariable Long id){
+
         return employeeService.findById(id);
     }
 
