@@ -67,7 +67,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee findByFirstName(String firstName) {
-
         return new ObjectMapper().convertValue(repository.findByFirstName(firstName),Employee.class);
     }
 }
